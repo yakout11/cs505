@@ -16,12 +16,12 @@ void LinkedList::addItem(string name, int qty) {
         temp->next = newNode;
     }
 
-    cout << "تمت إضافة الصنف: " << name << " - الكمية: " << qty << endl;
+    cout << " Item added: " << name << " - Quantity: " << qty << endl;
 }
 
 void LinkedList::removeItem(string name) {
     if (!head) {
-        cout << "المخزن فارغ! لا يوجد أصناف للحذف." << endl;
+        cout << "The warehouse is empty! There are no items to delete."<< endl;
         return;
     }
 
@@ -29,7 +29,7 @@ void LinkedList::removeItem(string name) {
         Node* del = head;
         head = head->next;
         delete del;
-        cout << "تم حذف الصنف بنجاح: " << name << endl;
+        cout << "The item was successfully deleted:" << name << endl;
         return;
     }
 
@@ -41,9 +41,9 @@ void LinkedList::removeItem(string name) {
         Node* del = temp->next;
         temp->next = temp->next->next;
         delete del;
-        cout << "تم حذف الصنف: " << name << endl;
+        cout << "Category deleted:" << name << endl;
     } else {
-        cout << "الصنف غير موجود!" << endl;
+        cout << "This item is not available!" << endl;
     }
 }
 
@@ -60,14 +60,14 @@ bool LinkedList::findItem(string name) {
 
 void LinkedList::displayItems() {
     if (!head) {
-        cout << "المخزن فارغ حالياً." << endl;
+        cout << "The warehouse is currently empty." << endl;
         return;
     }
 
-    cout << "\n===== محتويات المخزن =====" << endl;
+    cout << "\n=====Store contents =====" << endl;
     Node* temp = head;
     while (temp) {
-        cout << "الصنف: " << temp->itemName << " | الكمية: " << temp->quantity << endl;
+        cout << "Item: " << temp->itemName << " | Quantity: " << temp->quantity << endl;
         temp = temp->next;
     }
     cout << "===========================\n";
